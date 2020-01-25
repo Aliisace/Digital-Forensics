@@ -13,9 +13,6 @@ cd ~/Desktop/jd
 sudo umount /mnt/suspectDrive
 sudo losetup -d /dev/loop0
 
-cp /media/student_notes/2018-19/CMP209/handouts/winXP.dd ~/Desktop/jd
-md5sum ~/Desktop/jd/winXP.dd > winXPAfterInitailImaging.md5
-
 sudo losetup -o 32256 /dev/loop0 winXP.dd
 
 sudo mount -o ro /dev/loop0 /mnt/suspectDrive
@@ -34,7 +31,7 @@ grep -v -f winXP.md5List.txt johnDoe.nameAndmd5List.txt 2>&1 | tee compar.txt
 
 cp ~/Desktop/jd/johnDoe.nameAndmd5List.txt ~/Desktop/jd/johnDoe.nameAndmd5List.copy.txt
 
-
+#
 if [ ! -f johnDoe.nameAndmd5List.copy.txt ]; then
   echo "Input data file not found. Please create in.txt"
   exit 1;
