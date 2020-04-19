@@ -1,0 +1,48 @@
+1.1 /mkdir concerning
+
+1.2 dmesg
+
+1.3 sudo dcfldd if =/dev/sd<letters from previous step> of /home/admin/jd/johnDoe.dd conv=notrunc,noerror,sync hash=md5 hashlog=home/admin/jd/johnDoe.Hahs.md5 bs=1409616 count=4096
+
+1.4 md5sum johnDoe.dd johnDoeAfterInitialImaging.md5
+    "d63dd1b8917ca28bac7c955fc3b6cd25"
+
+1.5 chmod 400 <filename>
+    400 = read only
+
+1.6 mmls -t dos johnDoe.dd
+    fdisk johnDoe.dd
+
+
+2.1 /navigate to where the hard drive is
+
+2.2 /create a keywords file of words to search for
+
+2.3 strings -a -t d johnDoe.dd > johnDoe.dd.strings
+
+2.4 grep -i -f keywords.txt johnDoe.dd.strings
+
+2.5 foremost johnDoe.dd
+
+2.6 /navigate to jpg folder
+
+2.7 mkdir suspiciousPics
+
+2.8 metacam 2>/dev/null | grep "Canon PowerShot" -B 4 | grep "<File>" | sed "s/<File>://" | xargs -I{} cp {} suspiciousPics
+
+2.9 metacam 2>/dev/null | grep "Canon EOS-1DS" -B 4 | grep "<File>" | sed "s/<File>://" | xargs -I{} cp {} suspiciousPics
+
+2.10 /move suspiciousPics to concerning
+
+2.11 /search for anything else dodgy
+
+
+3.1 /navigate to the hard drive
+ 
+3.2 sudo losesetup -o 32256 /dev/loop0/ johnDoe.dd
+    sudo mount -o -ro /dev/loop0 /mnt/suspectDrive
+
+3.3 cd mnt/suspectDrive
+
+3.4 md5deep - r * > home/admin/Desktop/jd/johnDoe.nameAndmd5List.txt
+
